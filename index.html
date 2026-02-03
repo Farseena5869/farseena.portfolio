@@ -1,0 +1,1339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farseena Faisal | Cybersecurity Professional</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=JetBrains+Mono:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cyber-blue: #00f3ff;
+            --cyber-purple: #9d00ff;
+            --cyber-pink: #ff006e;
+            --cyber-green: #00ff88;
+            --dark-bg: #0a0a0f;
+            --card-bg: #13131a;
+            --text-primary: #e8e8f0;
+            --text-secondary: #a0a0b8;
+            --accent-gradient: linear-gradient(135deg, var(--cyber-blue), var(--cyber-purple));
+            --glow-cyan: 0 0 20px rgba(0, 243, 255, 0.5);
+            --glow-purple: 0 0 30px rgba(157, 0, 255, 0.6);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--dark-bg);
+            color: var(--text-primary);
+            font-family: 'JetBrains Mono', monospace;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Animated Background */
+        .cyber-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        .grid-line {
+            position: absolute;
+            background: var(--cyber-blue);
+            opacity: 0.1;
+        }
+
+        .grid-line.horizontal {
+            width: 100%;
+            height: 1px;
+            animation: scan-horizontal 8s linear infinite;
+        }
+
+        .grid-line.vertical {
+            height: 100%;
+            width: 1px;
+            animation: scan-vertical 6s linear infinite;
+        }
+
+        @keyframes scan-horizontal {
+            0%, 100% { transform: translateY(0); opacity: 0.05; }
+            50% { opacity: 0.2; }
+        }
+
+        @keyframes scan-vertical {
+            0%, 100% { transform: translateX(0); opacity: 0.05; }
+            50% { opacity: 0.2; }
+        }
+
+        /* Floating particles */
+        .particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: var(--cyber-blue);
+            border-radius: 50%;
+            animation: float 20s infinite;
+            opacity: 0.4;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0); }
+            25% { transform: translateY(-100px) translateX(50px); }
+            50% { transform: translateY(-200px) translateX(-50px); }
+            75% { transform: translateY(-100px) translateX(100px); }
+        }
+
+        /* Header/Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 2rem;
+            background: radial-gradient(ellipse at center, rgba(157, 0, 255, 0.15) 0%, transparent 70%);
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 1200px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .glitch-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(3rem, 8vw, 7rem);
+            font-weight: 900;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            animation: glow-pulse 3s ease-in-out infinite;
+            position: relative;
+        }
+
+        @keyframes glow-pulse {
+            0%, 100% { filter: drop-shadow(0 0 10px rgba(0, 243, 255, 0.5)); }
+            50% { filter: drop-shadow(0 0 30px rgba(157, 0, 255, 0.8)); }
+        }
+
+        .hero h2 {
+            font-family: 'Space Mono', monospace;
+            font-size: clamp(1.2rem, 3vw, 2rem);
+            color: var(--cyber-green);
+            margin-bottom: 2rem;
+            font-weight: 400;
+            letter-spacing: 0.1em;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .typing-effect {
+            display: inline-block;
+            border-right: 3px solid var(--cyber-green);
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { border-color: var(--cyber-green); }
+            51%, 100% { border-color: transparent; }
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            animation: fadeInUp 1s ease-out 0.4s both;
+            line-height: 1.8;
+        }
+
+        /* CTA Buttons */
+        .cta-buttons {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .btn {
+            padding: 1.2rem 3rem;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            text-decoration: none;
+            display: inline-block;
+            letter-spacing: 0.05em;
+        }
+
+        .btn-primary {
+            background: var(--accent-gradient);
+            color: white;
+            box-shadow: var(--glow-cyan);
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 40px rgba(0, 243, 255, 0.8);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--cyber-blue);
+            border: 2px solid var(--cyber-blue);
+            box-shadow: inset 0 0 20px rgba(0, 243, 255, 0.1);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(0, 243, 255, 0.1);
+            transform: translateY(-3px);
+            box-shadow: inset 0 0 30px rgba(0, 243, 255, 0.3), var(--glow-cyan);
+        }
+
+        /* Scroll Indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(10px); }
+        }
+
+        .scroll-indicator svg {
+            width: 30px;
+            height: 30px;
+            stroke: var(--cyber-blue);
+            animation: glow-pulse 2s ease-in-out infinite;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 6rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .section-header h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::before {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--accent-gradient);
+            animation: expand 1s ease-out forwards;
+            transform-origin: left;
+        }
+
+        @keyframes expand {
+            from { transform: scaleX(0); }
+            to { transform: scaleX(1); }
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            margin-top: 2rem;
+        }
+
+        /* Stats Section */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        .stat-card {
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 15px;
+            border: 1px solid rgba(0, 243, 255, 0.2);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 243, 255, 0.1), transparent);
+            transition: left 0.6s;
+        }
+
+        .stat-card:hover::before {
+            left: 100%;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--cyber-blue);
+            box-shadow: var(--glow-cyan);
+        }
+
+        .stat-number {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .skill-category {
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid rgba(157, 0, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .skill-category::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(157, 0, 255, 0.2), transparent);
+            border-radius: 50%;
+            animation: pulse-glow 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.1); }
+        }
+
+        .skill-category:hover {
+            transform: scale(1.02);
+            border-color: var(--cyber-purple);
+            box-shadow: var(--glow-purple);
+        }
+
+        .skill-category h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            color: var(--cyber-blue);
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .skill-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .skill-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--accent-gradient);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .skill-info {
+            flex: 1;
+        }
+
+        .skill-name {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.3rem;
+        }
+
+        .skill-bar {
+            width: 100%;
+            height: 6px;
+            background: rgba(0, 243, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: var(--accent-gradient);
+            border-radius: 10px;
+            animation: fill-bar 2s ease-out forwards;
+            box-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+        }
+
+        @keyframes fill-bar {
+            from { width: 0; }
+        }
+
+        /* Experience Timeline */
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent, var(--cyber-blue), transparent);
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            grid-column: 2;
+            grid-row: 1;
+        }
+
+        .timeline-item:nth-child(even) .timeline-date {
+            grid-column: 1;
+            grid-row: 1;
+            text-align: right;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 20px;
+            height: 20px;
+            background: var(--cyber-blue);
+            border-radius: 50%;
+            box-shadow: 0 0 20px var(--cyber-blue);
+            z-index: 2;
+            animation: pulse-dot 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { box-shadow: 0 0 20px var(--cyber-blue); }
+            50% { box-shadow: 0 0 40px var(--cyber-blue), 0 0 60px var(--cyber-blue); }
+        }
+
+        .timeline-content {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(0, 243, 255, 0.2);
+            transition: all 0.4s ease;
+        }
+
+        .timeline-content:hover {
+            transform: scale(1.03);
+            border-color: var(--cyber-blue);
+            box-shadow: var(--glow-cyan);
+        }
+
+        .timeline-content h3 {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--cyber-green);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content h4 {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-content ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .timeline-content li {
+            padding-left: 1.5rem;
+            margin-bottom: 0.8rem;
+            position: relative;
+        }
+
+        .timeline-content li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--cyber-blue);
+            font-size: 1.2rem;
+        }
+
+        .timeline-date {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            font-family: 'Orbitron', sans-serif;
+            color: var(--cyber-purple);
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(0, 243, 255, 0.2);
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--accent-gradient);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .project-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--cyber-blue);
+            box-shadow: var(--glow-cyan);
+        }
+
+        .project-header {
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(0, 243, 255, 0.1), rgba(157, 0, 255, 0.1));
+        }
+
+        .project-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--accent-gradient);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-card h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .project-type {
+            color: var(--cyber-green);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .project-body {
+            padding: 2rem;
+        }
+
+        .project-body p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .tag {
+            padding: 0.5rem 1rem;
+            background: rgba(0, 243, 255, 0.1);
+            color: var(--cyber-blue);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(0, 243, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .tag:hover {
+            background: rgba(0, 243, 255, 0.2);
+            transform: scale(1.05);
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-card {
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 243, 255, 0.2);
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-card::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 0;
+            height: 0;
+            background: radial-gradient(circle, rgba(0, 243, 255, 0.2), transparent);
+            border-radius: 50%;
+            transition: all 0.6s ease;
+        }
+
+        .contact-card:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .contact-card:hover {
+            transform: scale(1.05);
+            border-color: var(--cyber-blue);
+            box-shadow: var(--glow-cyan);
+        }
+
+        .contact-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: var(--accent-gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-card h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-card p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-card a {
+            color: var(--cyber-blue);
+            text-decoration: none;
+            font-weight: 600;
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+
+        .contact-card a:hover {
+            color: var(--cyber-green);
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(10, 10, 15, 0.9);
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(0, 243, 255, 0.2);
+            margin-top: 6rem;
+        }
+
+        footer p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--cyber-blue);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .footer-links a:hover {
+            color: var(--cyber-green);
+            text-shadow: 0 0 10px var(--cyber-green);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 30px;
+            }
+
+            .timeline-item {
+                grid-template-columns: 1fr;
+                padding-left: 60px;
+            }
+
+            .timeline-item:nth-child(even) .timeline-content {
+                grid-column: 1;
+            }
+
+            .timeline-item:nth-child(even) .timeline-date {
+                grid-column: 1;
+                text-align: left;
+            }
+
+            .timeline-dot {
+                left: 30px;
+            }
+
+            .timeline-date {
+                margin-bottom: 1rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+
+        /* Utility Classes */
+        .text-gradient {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .glow-text {
+            text-shadow: 0 0 20px currentColor;
+        }
+
+        /* Loading Animation */
+        @keyframes shimmer {
+            0% { background-position: -1000px 0; }
+            100% { background-position: 1000px 0; }
+        }
+
+        .animate-shimmer {
+            animation: shimmer 2s infinite;
+            background: linear-gradient(to right, transparent 0%, rgba(0, 243, 255, 0.3) 50%, transparent 100%);
+            background-size: 1000px 100%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="cyber-background" id="cyberBg"></div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="glitch-wrapper">
+                <h1>FARSEENA FAISAL</h1>
+            </div>
+            <h2><span class="typing-effect">CYBERSECURITY PROFESSIONAL</span></h2>
+            <p>Transitioning from Digital Marketing to Cybersecurity • Protecting Organizations Through Analytics, Strategy & Security Intelligence • Building Robust Defenses Against Emerging Threats • Based in Kochi, Kerala</p>
+            
+            <div class="cta-buttons">
+                <a href="#experience" class="btn btn-primary">View Experience</a>
+                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+            </div>
+        </div>
+
+        <div class="scroll-indicator">
+            <svg viewBox="0 0 24 24" fill="none">
+                <path d="M12 5v14M19 12l-7 7-7-7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section id="stats">
+        <div class="section-header">
+            <h2 class="text-gradient">Career Impact</h2>
+            <p>Key achievements and professional milestones</p>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">5+</div>
+                <div class="stat-label">Years Experience</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">12+</div>
+                <div class="stat-label">Certifications</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Committed to Security</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">∞</div>
+                <div class="stat-label">Learning Mindset</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="section-header">
+            <h2 class="text-gradient">Technical Arsenal</h2>
+            <p>Combining cybersecurity fundamentals with proven analytical skills</p>
+        </div>
+
+        <div class="skills-container">
+            <div class="skill-category">
+                <h3>🛡️ Cybersecurity Skills</h3>
+                <div class="skill-item">
+                    <div class="skill-icon">🔒</div>
+                    <div class="skill-info">
+                        <div class="skill-name">Security Fundamentals</div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 75%;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">🔍</div>
+                    <div class="skill-info">
+                        <div class="skill-name">Threat Detection & Analysis</div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 70%;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">⚠️</div>
+                    <div class="skill-info">
+                        <div class="skill-name">Incident Response</div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 65%;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">📊</div>
+                    <div class="skill-info">
+                        <div class="skill-name">SIEM & Log Analysis</div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 70%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>📈 Analytics & Strategy</h3>
+                <div class="skill-item">
+                    <div class="skill-icon">📊</div>
+                    <div class="skill-info">
+                        <div class="skill-name">Data Analysis</div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">🎯</div>
+                    <div class="skill-info">
+                        <div class="skill-name">Pattern Recognition</div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 95%;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">🔧</div>
+                    <div class="skill-info">
+                        <div class="skill-name">Problem Solving</div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 92%;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">💬</div>
+                    <div class="skill-info">
+                        <div class="skill-name">Communication</div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 88%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>🤖 Technical Tools</h3>
+                <div class="skill-item">
+                    <div class="skill-icon">🔍</div>
+                    <div class="skill-info">
+                        <div class="skill-name">Google Analytics & Search Console</div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 95%;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">🎨</div>
+                    <div class="skill-info">
+                        <div class="skill-name">SEO & Technical Auditing</div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">🤖</div>
+                    <div class="skill-info">
+                        <div class="skill-name">AI Integration & Automation</div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">📱</div>
+                    <div class="skill-info">
+                        <div class="skill-name">Marketing Platforms</div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 88%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="section-header">
+            <h2 class="text-gradient">Professional Journey</h2>
+            <p>From digital marketing excellence to cybersecurity innovation</p>
+        </div>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-date">2024 - 2025</div>
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>Digital Marketing & SEO Specialist</h3>
+                    <h4>Sevengits • Remote</h4>
+                    <ul>
+                        <li>Developed SEO strategies improving organic rankings and traffic</li>
+                        <li>Analyzed complex data sets to identify trends and opportunities</li>
+                        <li>Implemented AI workflows for campaign optimization</li>
+                        <li>Monitored security vulnerabilities affecting website performance</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">2022 - 2023</div>
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>Digital Marketing & SEO Analyst</h3>
+                    <h4>Amberpath LLP • On-site</h4>
+                    <ul>
+                        <li>Conducted website audits identifying technical and security issues</li>
+                        <li>Created detailed reports for stakeholders at various technical levels</li>
+                        <li>Collaborated with dev teams on security best practices</li>
+                        <li>Managed multiple projects with attention to detail</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">2020 - 2022</div>
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>Digital Sales & SEO Representative</h3>
+                    <h4>Yatramantra • Hybrid</h4>
+                    <ul>
+                        <li>Analyzed user behavior to optimize conversion rates</li>
+                        <li>Identified and resolved technical issues affecting functionality</li>
+                        <li>Developed strategies balancing business needs with privacy</li>
+                        <li>Built foundation in data-driven decision making</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="section-header">
+            <h2 class="text-gradient">Learning & Development</h2>
+            <p>Building cybersecurity expertise through hands-on experience</p>
+        </div>
+
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-icon">🛡️</div>
+                    <h3>Security Fundamentals</h3>
+                    <div class="project-type">Core Learning</div>
+                </div>
+                <div class="project-body">
+                    <p>Building strong foundations in network security, threat intelligence, and security frameworks through structured coursework and hands-on labs.</p>
+                    <div class="project-tags">
+                        <span class="tag">Network Security</span>
+                        <span class="tag">Threat Intel</span>
+                        <span class="tag">Frameworks</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-icon">🔍</div>
+                    <h3>SIEM & Log Analysis</h3>
+                    <div class="project-type">Practical Skills</div>
+                </div>
+                <div class="project-body">
+                    <p>Developing expertise in security monitoring, log analysis, and incident detection using industry-standard SIEM platforms and tools.</p>
+                    <div class="project-tags">
+                        <span class="tag">SIEM</span>
+                        <span class="tag">Log Analysis</span>
+                        <span class="tag">Monitoring</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-icon">🏠</div>
+                    <h3>Home Lab Environment</h3>
+                    <div class="project-type">Self-Study</div>
+                </div>
+                <div class="project-body">
+                    <p>Created personal lab environment for practicing security tools, vulnerability assessment, and incident response scenarios in a safe space.</p>
+                    <div class="project-tags">
+                        <span class="tag">Hands-on Practice</span>
+                        <span class="tag">Tools</span>
+                        <span class="tag">Testing</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-icon">📚</div>
+                    <h3>Continuous Learning</h3>
+                    <div class="project-type">Professional Development</div>
+                </div>
+                <div class="project-body">
+                    <p>Actively pursuing industry certifications and staying current with emerging threats, security trends, and best practices in cybersecurity.</p>
+                    <div class="project-tags">
+                        <span class="tag">Certifications</span>
+                        <span class="tag">Research</span>
+                        <span class="tag">Community</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="section-header">
+            <h2 class="text-gradient">Let's Connect</h2>
+            <p>Open to opportunities, mentorship, and collaboration</p>
+        </div>
+
+        <div class="contact-container">
+            <div class="contact-card">
+                <div class="contact-icon">💼</div>
+                <h3>LinkedIn</h3>
+                <p>Connect with me professionally</p>
+                <a href="https://linkedin.com/in/farseena-faisal" target="_blank">View Profile →</a>
+            </div>
+
+            <div class="contact-card">
+                <div class="contact-icon">📧</div>
+                <h3>Email</h3>
+                <p>Let's discuss opportunities</p>
+                <a href="mailto:farseena5869@gmail.com">Send Email →</a>
+            </div>
+
+            <div class="contact-card">
+                <div class="contact-icon">📍</div>
+                <h3>Location</h3>
+                <p>Based in Kochi, Kerala</p>
+                <a href="#location">Open to Remote →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Farseena Faisal • Cybersecurity Professional</p>
+        <div class="footer-links">
+            <a href="#stats">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#experience">Experience</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <p style="margin-top: 1.5rem; font-size: 0.85rem;">Securing the Digital Future, One System at a Time</p>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Create animated background
+        function createBackground() {
+            const bg = document.getElementById('cyberBg');
+            
+            // Create grid lines
+            for (let i = 0; i < 10; i++) {
+                const hLine = document.createElement('div');
+                hLine.className = 'grid-line horizontal';
+                hLine.style.top = `${i * 10}%`;
+                hLine.style.animationDelay = `${i * 0.2}s`;
+                bg.appendChild(hLine);
+                
+                const vLine = document.createElement('div');
+                vLine.className = 'grid-line vertical';
+                vLine.style.left = `${i * 10}%`;
+                vLine.style.animationDelay = `${i * 0.3}s`;
+                bg.appendChild(vLine);
+            }
+            
+            // Create particles
+            for (let i = 0; i < 30; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+                particle.style.animationDelay = `${Math.random() * 20}s`;
+                particle.style.animationDuration = `${15 + Math.random() * 10}s`;
+                bg.appendChild(particle);
+            }
+        }
+
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            observer.observe(section);
+        });
+
+        // Typing effect
+        const typingText = document.querySelector('.typing-effect');
+        if (typingText) {
+            const text = typingText.textContent;
+            typingText.textContent = '';
+            let i = 0;
+            
+            function type() {
+                if (i < text.length) {
+                    typingText.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(type, 100);
+                }
+            }
+            
+            setTimeout(type, 500);
+        }
+
+        // Initialize
+        createBackground();
+
+        // Counter animation for stats
+        function animateCounter(element, target) {
+            let current = 0;
+            const increment = target / 50;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target === Infinity ? '∞' : target + '+';
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current) + '+';
+                }
+            }, 30);
+        }
+
+        // Observe stat cards for counter animation
+        const statObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const number = entry.target.querySelector('.stat-number');
+                    const text = number.textContent;
+                    if (text !== '∞') {
+                        const target = parseInt(text);
+                        animateCounter(number, target);
+                    }
+                    statObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 })
